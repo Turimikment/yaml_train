@@ -20,4 +20,4 @@ COPY --from=editor /usr/share/nginx/html /usr/share/nginx/html/editor
 ENV PORT=8080
 
 # Генерим реальный конфиг с подставленным портом и запускаем nginx
-CMD /bin/sh -c "envsubst '$PORT' < /etc/nginx/templates/default.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+CMD /bin/sh -c "envsubst '\${PORT}' < /etc/nginx/templates/default.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
